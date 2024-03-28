@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Desaturated-Dark-Cyan: hsl(180, 29%, 50%);
+  --Light-Grayish-Cyan: hsl(180, 52%, 96%); /* Background */
+  --Light-Grayish-Cyan-fil: hsl(180, 31%, 95%); /* Filters Tables */
+  --Dark-Grayish-Cyan: hsl(180, 8%, 52%);
+  --Very-Dark-Grayish-Cyan: hsl(180, 14%, 20%);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--Light-Grayish-Cyan);
+  font-family: "League Spartan Variable", sans-serif;
+}
+
+.contain {
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  background: url(/images/bg-header-desktop.svg) no-repeat,
+    var(--Desaturated-Dark-Cyan);
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .jobs {
+    width: 70%;
+    margin-top: 100px;
+    .card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      border-radius: 8px;
+      background: #fff;
+      padding: 25px;
+      box-shadow: 0 2px 20px 2px rgba(0, 0, 0, 0.1);
+
+      .company-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .util {
+          margin-bottom: 10px;
+          .name-company {
+            color: var(--Desaturated-Dark-Cyan);
+            font-size: 18px;
+            margin-right: 10px;
+          }
+          .indicator {
+            color: #fff;
+            padding: 5px 10px;
+            line-height: 1;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 5px;
+            text-transform: uppercase;
+            margin-block: auto;
+            display: inline-block;
+            &.new {
+              background: var(--Desaturated-Dark-Cyan);
+            }
+            &.featured {
+              background: var(--Very-Dark-Grayish-Cyan);
+            }
+          }
+        }
+
+        .level {
+          font-size: 20px;
+          margin: 15px 0;
+          color: var(--Very-Dark-Grayish-Cyan);
+        }
+
+        .date {
+          .date-item {
+            color: var(--Very-Dark-Grayish-Cyan);
+            display: inline-flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:not(:last-child)::after {
+              content: "";
+              display: inline-block;
+              width: 3px;
+              height: 3px;
+              background: var(--Very-Dark-Grayish-Cyan);
+              margin: 0 20px;
+              border-radius: 100%;
+            }
+          }
+        }
+      }
+
+      .tools-company {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        gap: 20px;
+        .tag {
+          color: var(--Very-Dark-Grayish-Cyan);
+          background: var(--Light-Grayish-Cyan);
+          font-size: 16px;
+          font-weight: bold;
+          padding: 10px;
+          border-radius: 5px;
+          color: var(--Desaturated-Dark-Cyan);
+          user-select: none;
+          cursor: pointer;
+          transition: scale 0.2s;
+          &:hover {
+            scale: 1.05;
+            color: #fff;
+            background: var(--Desaturated-Dark-Cyan);
+          }
+        }
+      }
+      &.new {
+        border-left: 4px solid var(--Desaturated-Dark-Cyan);
+      }
+    }
+  }
+}
