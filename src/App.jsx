@@ -3,11 +3,14 @@ import { useState } from 'react';
 import './App.css'
 import Card from './components/Card';
 import data from './data.json'
-// Supports weights 100-900
 import '@fontsource-variable/league-spartan';
 
 function App() {
   const   [jobs, setJobs] = useState(data)
+  const filterdJobs = (type,tag)=> {
+      const newJobs = jobs.filter(job => job[type].includes(tag))
+      setJobs(newJobs)
+  }
   return (
     <div className='contain'>
      <header></header>
@@ -16,7 +19,9 @@ function App() {
       <section className='jobs'>
           {
             jobs.map(job => (
-              <Card key={crypto.randomUUID()}
+              <Card 
+              key={crypto.randomUUID()}
+              show={filterdJobs}
               logo={job.logo} 
               company={job.company} 
               resent={job.new} 
@@ -28,7 +33,7 @@ function App() {
               posted={job.postedAt}
               contract={job.contract}
               tools={job.tools}
-              languajes={job.languages}
+              languages={job.languages}
               ></Card>
             ))
           }

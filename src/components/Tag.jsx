@@ -1,6 +1,7 @@
+/* eslint-disable react/no-unknown-property */
 // eslint-disable-next-line react/prop-types
-export default function Tag({children}) {
+export default function Tag({children,type,filter}) {
   return (
-    <div className="tag">{children}</div>
+    <div onClick={()=> filter(type,children)}className="tag" datatype={type}>{children}</div>
   )
 }
